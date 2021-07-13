@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        #c,.a,select{color:cadetblue;font-size: medium;}
+        h1:hover{color:rgb(168, 219, 221) !important;}
+        .d{
+            width: 120px;
+            border: 1px solid royalblue;
+            margin: 0 auto;
+            margin-top: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+            float: left;
+        }
+        .e a{
+            width: 120px;
+            background-color: rgb(121, 182, 223);
+            margin: 0 auto;
+            margin-left: 5px;
+            margin-top: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+            display: block; 
+            float: left;
+        }
+        .clear::before,.clear::after{content:"";display:block;clear: both;}
+        
+    </style>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+    <!--  /+tab  -->
+    <h1>一级标题h1</h1>
+    <h6>六级标题h6</h6>
+    <p>段落p</p>
+    <ul>无序列表ul <li id="c">点li</li></ul>
+    <ol>有序列表ol<li>数字li</li></ol>
+    <a href="https://www.bilibili.com/video/BV16J411j7gz?p=15">超链接a</a>
+    <img src="error.png" alt="加载失败" width="100" height="100">
+    <span></span>
+    <table border="1">
+        <thead>
+            <th></th>
+            <th>表头table thead th</th>
+            <th>表头table thead th</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">合并td rowspan</td>
+                <td>身体tbody 行tr 格td</td>
+                <td class="a">tbody tr td</td>
+                <td>tbody tr td</td>
+            </tr>
+            <tr >
+                <td colspan="2">合并td colspan</td>
+                <td>tbody tr td</td>
+            </tr>
+        </tbody>
+    </table>
+    <form action="">
+        <select name="" id=""><option value="">form select option</option><option value="">option</option></select>
+        <label for="">form label</label>
+        <input type="text" placeholder="form inputtext placeholder"> 
+        <input type="password" placeholder="form inputpassword placeholder">
+        <input type="button" value="form inputbutton">
+        <input type="submit" value="form inputsubmit">
+        <input type="radio" name="二选一">
+        <input type="radio" name="二选一">
+        <input type="checkbox">
+    </form>
+    <div class="clear">
+        <div class="d"><p>div box float</p></div>
+        <div class="e"><p><a href="https://www.bilibili.com/video/BV16J411j7gz?p=7&spm_id_from=pageDriver">div displayblock float</a></p></div>   
+    </div>
+    <h3>检验清除盒子浮动clearclass</h3>
+    flex：排列沿mainAxis 高度自适应 
+
+    <script>
+        var a = 0, 
+        b = "6个基本类型number/string/boolean/undefined/null/object", 
+        c, d = {atr1:"对象属于6基本",f1:function(){console.log(this.atr1)}}
+
+        console.log(a++ + ++a +"(打印本身再加一 + 加一之后打印)")
+        console.log(20 == "20" +"(类型不同，恒等于不进行类型转换性能优)")
+        console.log(20 !== "20" +"(类型不同，恒不等于不进行类型转换性能优)")
+        console.log("if/switch只能判断等于  for大多情况适用/while/dowhile  break/continue只结束本次循环")
+        console.log(true? "条件对的输出值":"条件错的输出")
+        fn()  //函数声明能提升，函数表达式let fn = function()不能提升
+        function fn(){console.log("function,object都用作封装")}
+        //匿名函数可作函数参数
+        //还可属于函数
+        function fn1(n=0,m=0){}//设置默认参数值
+        (function(){})()//（匿名立即执行函数)()
+        function fn2(){function fn3(); return fn3}//闭包 外部函数调用内部函数
+        //箭头函数
+        var e =["数组","同类型","有序"],
+        e1 = [
+            {a1:" ",a2:1,a3:1},
+            {a1:"",a2:0,a3:null}
+        ],
+        f = /123/  //包含顺序不变三个在一起
+        f1 = /^\d$/ //一位 [数字]
+        f2 = /^[a-zA_Z0-9_]$/  //同\w
+        f3 = /^\w{5,}$/   //regExpr[范围字母数字下划线] ^首尾$ {5,}5位以上
+        f4 = /^\w{5,12}@gmail\.com$/  //验证邮箱格式 .表示所有所以加转义符
+        f5 = /^\d{4}-\d{2}-\d{2} [A-Z]{3}$/  //验证年月日格式
+        f5_ = /^(\d{4})-(\d{2})-(\d{2}) [A-Z]{3}$/  //分组到list
+        f6 = /[a-zA_Z]/g  //全局匹配
+        e.map(function(value,index){console.log("map遍历数组"+index+" "+value)})  
+        console.log("filter保留"+ e1.filter(function(item){if(item.a1 === " "){return item}}))
+        console.log("join连接list成str"+e.join("，"))
+        console.log("split拆分str成list"+b.split("/"))
+        if(f4.test("123_e@gmail.com")){console.log("验证通过regExp正则表达test")}
+        console.log("regExp正则表达exec匹配到"+f4.exec("123_e@gmail.com"))
+        console.log(f5.exec("2021-07-12 MON"))
+        console.log(f5_.exec("2021-07-12 MON"))
+        console.log("字符串replace去掉全局regExp正则表达"+b.replace(/[a-zA_Z]/g,""))
+        //setInterval(function(){var date = new Date();console.log(date)},1000)
+        
+        {console.log(str); let str = ""; str = " ";} //let更规范：作用域 块外无法访问，不能提升，不能重复声明
+        const PI = 3.1415926
+        const fn1 = function(){}
+
+    </script>
+</body>
+</html>

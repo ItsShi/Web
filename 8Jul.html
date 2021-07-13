@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //covert to any radix up to 36 
+        console.log(  (123).toString(36)  )
+        console.log( parseInt("3f",36) )
+        //covert an integer to radix 64 using a-z 0-9 A-Z - _
+        // 0   → "0"
+        // 1   → "1"
+        // 9   → "9"
+        // 10  → "a"
+        // 35  → "z"
+        // 61  → "Z"
+        // 62  → "-"
+        // 63  → "_"
+        // 64  → "10"
+        // 65  → "11"
+        function string10to64(quotient) {
+            var chars = '0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ-_'.split(''),   
+                result = []
+            do {
+                mod = quotient % 64
+                quotient = (quotient - mod) / 64
+                result.unshift(chars[mod])
+            } while (quotient)
+            console.log(" after convertion " + result.join(''))
+        }
+
+        function string64to10(char) {
+            var chars = '0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ-_',
+                char = String(char),
+                i = 0,
+                result = 0
+            while (i < char.length) {
+                result += Math.pow(radix, i++) * chars.indexOf(char.charAt(char.length - i) || 0)
+            }
+            console.log("input is "+ char+ " after convertion " + result)
+        }
+        string10to64(63)
+    
+        
+        
+
+    </script>
+</body>
+</html>
